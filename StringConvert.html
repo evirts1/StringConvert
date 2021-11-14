@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="eric.virts@gmail.com">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+</HEAD>
+<BODY>
+<FORM name="f0" METHOD=POST ACTION="">
+String:&nbsp;<INPUT TYPE="text" NAME="stringInput" size="150" value="test"><br>
+&nbsp;Base:(Max=36)&nbsp;<INPUT TYPE="text" NAME="outputBase" size="2" value="2"><br>
+&nbsp;Delimiter:&nbsp;<INPUT TYPE="text" NAME="delimiter" size="5" value=","><br>
+<INPUT TYPE="button" value=" convert string" onclick="c();"><br>
+<INPUT TYPE="button" value=" convert string to all base 2-36" onclick="c2();"><br>
+<span id="output"></span><br>
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function c()
+{
+	var s = document.f0.stringInput.value;
+	var b = document.f0.outputBase.value;
+	var d = document.f0.delimiter.value;
+	var so = '';
+
+	for(var i=0;i<s.length;i++)
+	{
+		so+=s.charCodeAt(i).toString(b)+d;
+	}
+	document.getElementById("output").innerHTML = so;
+}
+function c2()
+{
+	var s = document.f0.stringInput.value;
+	var b = document.f0.outputBase.value;
+	var d = document.f0.delimiter.value;
+	var so = '';
+	var sos = '';
+
+	for(var bb=2;bb<=36;bb++)
+	{  so+= 'Base ' +bb+' = ';
+		for(var i=0;i<s.length;i++)
+		{
+			sos += s.charCodeAt(i).toString(bb)+d;
+		}
+		so+=sos+'<br>';
+		sos='';
+	}
+	document.getElementById("output").innerHTML = so;
+}
+//-->
+</SCRIPT>
+</BODY>
+</HTML>
