@@ -1,0 +1,2 @@
+# StringConvert
+JavaScript string converter
